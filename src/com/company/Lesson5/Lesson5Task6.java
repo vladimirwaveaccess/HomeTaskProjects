@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Lesson5;
 
 /**
  * Распечатать все числа от 1 до 100, которые делятся на 5 без остатка. Используем цикл do-while.

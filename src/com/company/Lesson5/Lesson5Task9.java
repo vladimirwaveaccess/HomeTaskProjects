@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Lesson5;
 
 /**
  * Реализовать подсчет факториала используя цикл for.
