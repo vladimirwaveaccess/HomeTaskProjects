@@ -1,4 +1,4 @@
-package com.company.Methods;
+package com.company.methods;
 
 public class SelectionSorter {
     /**

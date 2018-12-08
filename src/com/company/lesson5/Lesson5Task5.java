@@ -1,4 +1,4 @@
-package com.company.Lesson5;
+package com.company.lesson5;
 
 /**
  * Распечатать 10 строк: “Task1”. “Task2”. … “Task10”. Используем цикл while.

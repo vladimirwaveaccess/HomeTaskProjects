@@ -1,8 +1,8 @@
-package com.company.Lesson5;
+package com.company.lesson5;
 
 import java.util.Arrays;
 
-import static com.company.Methods.SelectionSorter.sort;
+import static com.company.methods.SelectionSorter.sort;
 
 /**
  * Создать программу для сортировки массива алгоритмом сортировка выбором

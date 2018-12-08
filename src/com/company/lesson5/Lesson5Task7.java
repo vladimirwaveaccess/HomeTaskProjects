@@ -1,4 +1,4 @@
-package com.company.Lesson5;
+package com.company.lesson5;
 
 /**
  * Распечатать 5 символов в одну строку начиная с ‘h’. Используем цикл for.

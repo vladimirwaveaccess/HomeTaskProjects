@@ -1,9 +1,9 @@
-package com.company.Lesson5;
+package com.company.lesson5;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static com.company.Methods.Input.getIntegerValue;
+import static com.company.methods.Input.getIntegerValue;
 
 /**
  * Изменить программу сортировки пузырьком:
