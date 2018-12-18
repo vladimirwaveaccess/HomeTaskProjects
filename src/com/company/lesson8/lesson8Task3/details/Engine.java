@@ -1,5 +1,7 @@
 package com.company.lesson8.lesson8Task3.details;
 
+import java.util.Objects;
+
 /**
  * Класс Engine содержит поля - мощность, производитель.
  */
@@ -29,9 +31,23 @@ public class Engine {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Engine engine = (Engine) o;
+        return power == engine.power &&
+                Objects.equals(company, engine.company);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(power, company);
+    }
+
+    @Override
     public String toString() {
-        return "Engine{" +
-                "power=" + power +
+        return "Engine{ " +
+                "power = " + power +
                 ", company='" + company + '\'' +
                 '}';
     }

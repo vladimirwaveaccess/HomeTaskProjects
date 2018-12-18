@@ -3,6 +3,8 @@ package com.company.lesson8.lesson8Task3.vehicles;
 import com.company.lesson8.lesson8Task3.details.Engine;
 import com.company.lesson8.lesson8Task3.professions.Driver;
 
+import java.util.Objects;
+
 /**
  * Создать производный от Car класс - SportCar, характеризуемый также предельной скоростью.
  */
@@ -23,10 +25,24 @@ public class SportCar extends Car {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SportCar sportCar = (SportCar) o;
+        return Double.compare(sportCar.speed, speed) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), speed);
+    }
+
+    @Override
     public String toString() {
-        return "SportCar{" +
-                "speed=" + speed +
-                "Car=" + super.toString() +
+        return "SportCar{ " +
+                super.toString() +
+                ", speed = " + speed +
                 '}';
     }
 }

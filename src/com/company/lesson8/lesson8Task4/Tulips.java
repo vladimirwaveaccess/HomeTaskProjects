@@ -18,9 +18,9 @@ public class Tulips extends Flower{
 
     @Override
     public String toString() {
-        return "Tulips{" +
-                "color='" + color + '\'' +
-                ", Flower=" + super.toString() +
+        return "Tulips{ " +
+                super.toString() +
+                " color = " + getColor() +
                 '}';
     }
 }

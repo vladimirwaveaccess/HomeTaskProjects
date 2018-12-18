@@ -1,5 +1,7 @@
 package com.company.lesson8.lesson8Task3.professions;
 
+import java.util.Objects;
+
 /**
  * Класс Person содержит поля - ФИО, возраст.
  */
@@ -29,10 +31,24 @@ public class Person{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age &&
+                Objects.equals(fullName, person.fullName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(age, fullName);
+    }
+
+    @Override
     public String toString() {
-        return "Person{" +
-                "age=" + age +
-                ", fullName='" + fullName + '\'' +
+        return "Person{ " +
+                "age = " + age +
+                ", fullName = '" + fullName + '\'' +
                 '}';
     }
 }

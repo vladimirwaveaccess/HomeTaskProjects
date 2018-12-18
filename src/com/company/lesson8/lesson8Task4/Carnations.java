@@ -19,8 +19,8 @@ public class Carnations extends Flower {
     @Override
     public String toString() {
         return "Carnations{" +
-                "color='" + color + '\'' +
-                ", Flower=" + super.toString() +
+                super.toString() +
+                ", color = " + getColor() +
                 '}';
     }
 }

@@ -1,5 +1,7 @@
 package com.company.lesson8.lesson8Task4;
 
+import java.util.Objects;
+
 /**
  * Создать класс Flower, который содержит переменные страна производитель, срок хранения в днях, цена.
  */
@@ -41,11 +43,26 @@ public class Flower {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flower flower = (Flower) o;
+        return lifeOfStorage == flower.lifeOfStorage &&
+                Double.compare(flower.price, price) == 0 &&
+                Objects.equals(country, flower.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(country, lifeOfStorage, price);
+    }
+
+    @Override
     public String toString() {
         return "Flower{" +
-                "country='" + country + '\'' +
-                ", lifeOfStorage=" + lifeOfStorage +
-                ", price=" + price +
+                "country='" + getCountry() + '\'' +
+                ", lifeOfStorage=" + getLifeOfStorage() +
+                ", price=" + getPrice() +
                 '}';
     }
 

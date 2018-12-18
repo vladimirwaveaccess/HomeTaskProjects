@@ -1,5 +1,7 @@
 package com.company.lesson8.lesson8Task4;
 
+import java.util.Objects;
+
 public class Astra extends Flower {
     private String color;
 
@@ -17,10 +19,24 @@ public class Astra extends Flower {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Astra astra = (Astra) o;
+        return Objects.equals(color, astra.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), color);
+    }
+
+    @Override
     public String toString() {
-        return "Astra{" +
-                "color='" + color + '\'' +
-                ", Flower=" + super.toString() +
-                '}';
+        return "Astra{ " +
+                super.toString() +
+                ", color = " + getColor() +
+                "}";
     }
 }

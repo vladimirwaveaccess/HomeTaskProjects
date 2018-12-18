@@ -20,5 +20,10 @@ public class Main {
             System.out.println("На прием пришло животное - " + element.toString());
             veterinarian.treatAnimal(element);
         }
+
+        for (Animal element : animal) {
+            System.out.print("Guess who says - ");
+            element.makeNoise();
+        }
     }
 }

@@ -1,5 +1,8 @@
 package com.company.lesson8.lesson8Task4;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 import static com.company.lesson8.lesson8Task4.Methods.getCoast;
 
 /**
@@ -36,7 +39,23 @@ public class Main {
         System.out.println("The price of the second bouquet - " + getCoast(buket2));
         System.out.println("The price of the third bouquet - " + getCoast(buket3));
 
-        System.out.printf("Total sold %d flowers", Flower.getCountInstance());
+        System.out.printf("Total sold %d flowers\n", Flower.getCountInstance());
+
+        System.out.println("First bouquet:");
+        for (Flower flower : buket1) {
+            System.out.println(flower.toString());
+        }
+
+        System.out.println("Second bouquet:");
+        for (Flower flower : buket2) {
+            System.out.println(flower.toString());
+        }
+
+        System.out.println("Third bouquet:");
+        for (Flower flower : buket3) {
+            System.out.println(flower.toString());
+        }
+
 
     }
 }
