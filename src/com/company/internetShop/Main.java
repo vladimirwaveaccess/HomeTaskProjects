@@ -1,6 +1,4 @@
-package com.company.InternetShop;
-
-import java.util.TreeSet;
+package com.company.internetShop;
 
 /**
  * Создать несколько объектов класса Категория.
