@@ -1,4 +1,4 @@
-package com.company.InternetShop;
+package com.company.internetShop;
 
 import java.util.Objects;
 
