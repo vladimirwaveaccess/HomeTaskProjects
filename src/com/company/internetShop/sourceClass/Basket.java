@@ -1,4 +1,4 @@
-package com.company.internetShop;
+package com.company.internetShop.sourceClass;
 
 import java.util.Arrays;
 
