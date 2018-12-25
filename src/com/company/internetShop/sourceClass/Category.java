@@ -1,26 +1,27 @@
 package com.company.internetShop.sourceClass;
 
+import com.company.internetShop.common.CategoryList;
+
 import java.util.Arrays;
 import java.util.Objects;
-
 
 /**
  * Создать класс Категория, имеющий переменные имя и массив товаров.
  */
 public class Category {
-    private String name;
+    private CategoryList name;
     private Product[] products;
 
-    public Category(String name, Product[] products) {
+    public Category(CategoryList name, Product[] products) {
         this.name = name;
         this.products = products;
     }
 
-    public String getName() {
+    public CategoryList getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(CategoryList name) {
         this.name = name;
     }
 
@@ -37,7 +38,7 @@ public class Category {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
-        return Objects.equals(name, category.name) &&
+        return name == category.name &&
                 Arrays.equals(products, category.products);
     }
 
@@ -51,8 +52,8 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "name='" + getName() + '\'' +
-                ", products=" + Arrays.toString(getProducts()) +
+                "name=" + name +
+                ", products=" + Arrays.toString(products) +
                 '}';
     }
 }
