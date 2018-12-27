@@ -7,6 +7,12 @@ import com.company.internetShop.sourceClass.User;
 import java.util.concurrent.TimeUnit;
 
 public class BuyGoods {
+    /**
+     * Метод осуществляющий процедуру покупки
+     *
+     * @param user   - данные пользователя
+     * @param basket - корзина с продуктами которые выбрад пользователь
+     */
     public static void buyGoods(User user, Basket basket) {
         if (basket.getProducts().isEmpty()) {
             System.out.println("Sorry, your basket is empty!!!");

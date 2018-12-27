@@ -3,7 +3,7 @@ package com.company.internetShop.sourceClass;
 import java.util.Objects;
 
 /**
- * Создать класс Товар, имеющий переменные имя, цена, рейтинг
+ * Класс Товар, имеющий переменные имя, цена, рейтинг
  */
 public class Product {
     private String name;

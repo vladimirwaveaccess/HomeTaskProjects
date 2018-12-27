@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Создать класс Basket, содержащий массив купленных товаров.
+ * Класс Basket, содержащий массив купленных товаров.
  */
 public class Basket {
     private Set<Product> products = new HashSet<>();

@@ -44,9 +44,10 @@ public class Input {
     /**
      * Imitation of clear screen
      */
-    public static void clscr() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println();
+    public static void clscr(){
+        for(int clear = 0; clear < 1000; clear++)
+        {
+            System.out.println("\b") ;
         }
     }
 }

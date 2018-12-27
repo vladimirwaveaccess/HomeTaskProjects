@@ -3,7 +3,7 @@ package com.company.internetShop.sourceClass;
 import java.util.Objects;
 
 /**
- * Создать класс User, содержащий логин, пароль и объект класса Basket.
+ * Класс User, содержащий логин, пароль и объект класса Basket.
  */
 public class User {
     private String login;

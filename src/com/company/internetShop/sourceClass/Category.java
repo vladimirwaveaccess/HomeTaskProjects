@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * Создать класс Категория, имеющий переменные имя и массив товаров.
+ * Класс Категория, имеющий переменные имя и массив товаров.
  */
 public class Category {
     private CategoryList name;

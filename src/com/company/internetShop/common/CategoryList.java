@@ -1,5 +1,8 @@
 package com.company.internetShop.common;
 
+/**
+ * Список категорий
+ */
 public enum CategoryList {
     CHEMISTRY(1), MOBILE_DEVICE(2), DEVICE_FOR_LAPTOP(3);
 
