@@ -17,8 +17,9 @@ public class ChangeString {
 
     /**
      * Метод заменяющий в строке каждое второе вхождение «string_name» (не учитываем регистр символов) на «string_name»
-     * @param sourceString - исходная строка
-     * @param findString - подстрока которую нужно заменить
+     *
+     * @param sourceString  - исходная строка
+     * @param findString    - подстрока которую нужно заменить
      * @param replaceString - подстрока на которую происходит замена
      * @return - результирующая строка
      */
@@ -39,9 +40,10 @@ public class ChangeString {
 
     /**
      * Метод возвращает индекс первого вхождения указанной подстроки в данной строке, начиная с указанного индекса.
+     *
      * @param str1 - исходная строка
      * @param str2 - искомая подстрока
-     * @param pos - позиция с которой необходимо искать
+     * @param pos  - позиция с которой необходимо искать
      * @return - номер позиции
      */
     private static int findPosition(String str1, String str2, int pos) {
