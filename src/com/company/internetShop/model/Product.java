@@ -1,4 +1,4 @@
-package com.company.internetShop.sourceClass;
+package com.company.internetShop.model;
 
 import java.util.Objects;
 
@@ -61,9 +61,9 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "name='" + getName() + '\'' +
-                ", price=" + getPrice() +
-                ", rating=" + getRating() +
+                "name = '" + getName() + '\'' +
+                ", price = " + getPrice() +
+                ", rating = " + getRating() +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.company.internetShop.sourceClass;
+package com.company.internetShop.model;
 
 import java.util.Objects;
 

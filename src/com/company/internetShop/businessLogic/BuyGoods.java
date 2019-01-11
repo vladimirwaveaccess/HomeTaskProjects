@@ -1,8 +1,8 @@
-package com.company.internetShop.sourceCode;
+package com.company.internetShop.businessLogic;
 
 import com.company.internetShop.common.Constants;
-import com.company.internetShop.sourceClass.Basket;
-import com.company.internetShop.sourceClass.User;
+import com.company.internetShop.model.Basket;
+import com.company.internetShop.model.User;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,7 +20,7 @@ public class BuyGoods {
             user.setBasket(basket);
             System.out.println("Information about your purchase:");
             System.out.println(user.toString());
-            System.out.println("Purchase processing, please wait");
+            System.out.println("\nPurchase processing, please wait");
             try {
                 TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
@@ -28,7 +28,7 @@ public class BuyGoods {
             }
             basket.getProducts().removeAll(basket.getProducts());
             if (basket.getProducts().isEmpty()) {
-                System.out.println("Your purchase is successful.");
+                System.out.println("\nYour purchase is successful.");
             } else {
                 System.out.println(Constants.ERROR_MESSAGE);
             }

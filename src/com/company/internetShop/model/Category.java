@@ -1,4 +1,4 @@
-package com.company.internetShop.sourceClass;
+package com.company.internetShop.model;
 
 import com.company.internetShop.common.CategoryList;
 
@@ -52,8 +52,8 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "name=" + name +
-                ", products=" + Arrays.toString(products) +
+                "name=" + getName() +
+                ", products=" + Arrays.toString(getProducts()) +
                 '}';
     }
 }

@@ -1,10 +1,7 @@
-package com.company.internetShop.sourceCode;
+package com.company.internetShop.common;
 
-import com.company.internetShop.common.CategoryList;
-import com.company.internetShop.common.Menu;
-import com.company.internetShop.methods.Input;
-import com.company.internetShop.sourceClass.Category;
-import com.company.internetShop.sourceClass.Product;
+import com.company.internetShop.model.Category;
+import com.company.internetShop.model.Product;
 
 public class OutputMenuElement {
     /**
@@ -35,7 +32,7 @@ public class OutputMenuElement {
      * @param numberCategory - number of category
      */
     public static void outputGoodsOfCategory(Category[] categories, int numberCategory) {
-        Input.clscr();
+        ScannerUtility.clscr();
         for (Category category : categories) {
             if (category.getName().getCategoryNumber() == numberCategory) {
                 System.out.println(category.toString());
@@ -57,7 +54,7 @@ public class OutputMenuElement {
     /**
      * Menu number transfer to name of menu
      *
-     * @param numberMenu - nmenu number which input user
+     * @param numberMenu - menu number which input user
      * @return - menu name
      */
     public static Menu getMenuElement(int numberMenu) {

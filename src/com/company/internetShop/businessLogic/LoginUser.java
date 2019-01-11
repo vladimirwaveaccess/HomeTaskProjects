@@ -1,13 +1,9 @@
-package com.company.internetShop.sourceCode;
+package com.company.internetShop.businessLogic;
 
-import com.company.internetShop.methods.Input;
-import com.company.internetShop.sourceClass.User;
-
-import java.util.Scanner;
+import com.company.internetShop.common.ScannerUtility;
+import com.company.internetShop.model.User;
 
 public class LoginUser {
-    private static Scanner scanner = new Scanner(System.in);
-
     /**
      * Метод инициализирует переменные логин и пароль в переменной User user
      *
@@ -25,7 +21,7 @@ public class LoginUser {
     private static String getLogin() {
         String login;
         System.out.print("\nInput Login: > ");
-        login = Input.inputString(scanner);
+        login = ScannerUtility.inputString();
         return login;
     }
 
@@ -37,7 +33,7 @@ public class LoginUser {
     private static String getPassword() {
         String password;
         System.out.print("\nInput password: >");
-        password = Input.inputString(scanner);
+        password = ScannerUtility.inputString();
         return password;
     }
 }

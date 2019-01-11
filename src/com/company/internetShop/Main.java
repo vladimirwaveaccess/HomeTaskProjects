@@ -2,27 +2,24 @@ package com.company.internetShop;
 
 import com.company.internetShop.common.CategoryList;
 import com.company.internetShop.common.Constants;
-import com.company.internetShop.methods.Input;
-import com.company.internetShop.methods.Methods;
-import com.company.internetShop.sourceCode.*;
-import com.company.internetShop.sourceClass.Basket;
-import com.company.internetShop.sourceClass.Category;
-import com.company.internetShop.sourceClass.Product;
-import com.company.internetShop.sourceClass.User;
-
-import java.util.Scanner;
+import com.company.internetShop.common.OutputMenuElement;
+import com.company.internetShop.common.ScannerUtility;
+import com.company.internetShop.businessLogic.*;
+import com.company.internetShop.model.Basket;
+import com.company.internetShop.model.Category;
+import com.company.internetShop.model.Product;
+import com.company.internetShop.model.User;
 
 /**
  * Программа магазин.
- * Хардкорно прописываюися данные типа каталоги категорий, продуктов.
+ * Хардкорно прописываются данные типа каталоги категорий, продуктов.
  * После запуска программа просит авторизоваться пользователя (логин и пароль), данные произвольные.
- * Затем в цикле while происходит постоянный запрос пользователя о выбре пункта меню.
+ * Затем в цикле while происходит постоянный запрос пользователя о выборе пункта меню.
  * Программа продолжает работать до тех пор пока пользователь не выберет елемент меню EXIT
  */
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
         Category[] categories = new Category[CategoryList.values().length];
 
         Product[] products = new Product[]{
@@ -47,42 +44,43 @@ public class Main {
         // Main loop
         boolean exit = true;
         while (exit) {
-            Input.clscr();
+            ScannerUtility.clscr();
             OutputMenuElement.outputMenu();
             System.out.println();
-            System.out.print("Input number of item menu >");
-            switch (OutputMenuElement.getMenuElement(Input.getIntegerValue(scanner))) {
+            System.out.print(Constants.NUMBER_MENU);
+            switch (OutputMenuElement.getMenuElement(ScannerUtility.getIntegerValue())) {
                 case CATEGORY_LIST:
-                    Input.clscr();
+                    ScannerUtility.clscr();
                     OutputMenuElement.outputCategoriesList();
-                    Methods.ContinueWork();
+                    ScannerUtility.ContinueWork();
                     break;
                 case GOODS_LIST_OF_CATEGORY:
-                    Input.clscr();
-                    GoodsListOfCategory.getCategoryNumber(categories, scanner);
-                    Methods.ContinueWork();
+                    ScannerUtility.clscr();
+                    GoodsListOfCategory.getCategoryNumber(categories);
+                    ScannerUtility.ContinueWork();
                     break;
                 case ADD_TO_CART:
-                    Input.clscr();
-                    basketUser.setProducts(AddToCart.getProductNumber(products, scanner));
-                    Input.clscr();
-                    System.out.println("Your basket contains >\n");
+                    ScannerUtility.clscr();
+                    basketUser.setProducts(AddToCart.getProductNumber(products));
+                    basketUser.setPurchaseDate(AddToCart.getTime());
+                    ScannerUtility.clscr();
+                    System.out.println(Constants.BASKET_CONTAINS);
                     System.out.println(basketUser.toString());
-                    Methods.ContinueWork();
+                    ScannerUtility.ContinueWork();
                     break;
                 case BUY_GOODS:
-                    Input.clscr();
+                    ScannerUtility.clscr();
                     BuyGoods.buyGoods(user1, basketUser);
-                    Methods.ContinueWork();
+                    ScannerUtility.ContinueWork();
                     break;
                 case EXIT:
-                    Input.clscr();
+                    ScannerUtility.clscr();
                     System.out.println(Constants.GOOD_BUY);
                     exit = false;
                     break;
                 default:
-                    Input.clscr();
-                    System.out.println("You are selected wrong number");
+                    ScannerUtility.clscr();
+                    System.out.println(Constants.WRONG_NUMBER);
             }
         }
     }
