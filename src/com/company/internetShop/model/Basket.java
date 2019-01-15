@@ -54,7 +54,7 @@ public class Basket {
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd, MMMM, yyyy HH:mm:ss", Locale.getDefault());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd, MMMM, yyyy", Locale.getDefault());
         return "Basket{" +
                 "products = " + getProducts() +
                 ", date of purchase = " + getPurchaseDate().format(formatter) + " of local time" +
