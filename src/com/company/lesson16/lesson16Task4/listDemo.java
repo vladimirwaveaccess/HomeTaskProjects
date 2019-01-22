@@ -31,7 +31,16 @@ public class listDemo {
         set3.add(10);
         set3.add(5);
 
+        System.out.println("Source collections");
+        System.out.println(set1);
+        System.out.println(set2);
+        System.out.println(set3);
         union(set1, set2, set3);
+
+        System.out.println("Source collections");
+        System.out.println(set1);
+        System.out.println(set2);
+        System.out.println(set3);
         intersect(set1, set2, set3);
     }
 
@@ -40,11 +49,11 @@ public class listDemo {
         if (sets.length < 2) {
             System.out.println("Must be more than 1 collection");
         } else {
-            Set<T> set1 = sets[0];
+            Set<T> rezSet = new HashSet<>(sets[0]);
             for (Set<T> set : sets) {
-                set1.addAll(set);
+                rezSet.addAll(set);
             }
-            System.out.printf("Collections after union - %s%n", set1);
+            System.out.printf("Collections after union - %s%n", rezSet);
         }
     }
 
@@ -52,11 +61,11 @@ public class listDemo {
         if (sets.length < 2) {
             System.out.println("Must be more than 1 collection");
         } else {
-            Set<T> set1 = sets[0];
+            Set<T> rezSet = new HashSet<>(sets[0]);
             for (Set<T> set : sets) {
-                set1.retainAll(set);
+                rezSet.retainAll(set);
             }
-            System.out.printf("Collections after intersect - %s%n", set1);
+            System.out.printf("Collections after intersect - %s%n", rezSet);
         }
     }
 }
