@@ -3,6 +3,7 @@ package com.company.methods;
 import java.util.Scanner;
 
 public class Input {
+    private static Scanner scanner = new Scanner(System.in);
     /**
      * Метод считывает с консоли введенное целое число пользователем
      *
@@ -42,5 +43,20 @@ public class Input {
             }
         }
         return x;
+    }
+
+    /**
+     * Метод считывает с консоли введенню строку пользователем
+     *
+     * @return - введенная строка пользователем
+     */
+    public static String inputString() {
+        String str;
+        try {
+            str = scanner.nextLine();
+        } catch (Exception e) {
+            str = "Oops! Something go wrong!";
+        }
+        return str;
     }
 }
