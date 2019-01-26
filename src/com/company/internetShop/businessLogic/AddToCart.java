@@ -6,8 +6,8 @@ import com.company.internetShop.common.ScannerUtility;
 import com.company.internetShop.model.Product;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class AddToCart {
     /**
@@ -18,7 +18,7 @@ public class AddToCart {
      * @return - возвращает коллекцию добавленных товаров
      */
     public static Set<Product> getProductNumber(Product[] products) {
-        Set<Product> userBasket = new HashSet<Product>();
+        Set<Product> userBasket = new TreeSet<Product>();
         int select;
         do {
             ScannerUtility.clscr();

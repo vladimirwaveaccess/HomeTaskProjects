@@ -2,16 +2,13 @@ package com.company.internetShop.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Класс Basket, содержащий массив купленных товаров.
  */
 public class Basket {
-    private Set<Product> products = new HashSet<>();
+    private Set<Product> products = new TreeSet<>();
     private LocalDateTime purchaseDate;
 
     public Basket(Set<Product> products, LocalDateTime purchaseDate) {

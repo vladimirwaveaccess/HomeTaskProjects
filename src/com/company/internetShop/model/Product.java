@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Класс Товар, имеющий переменные имя, цена, рейтинг
  */
-public class Product {
+public class Product implements Comparable<Product> {
     private String name;
     private double price;
     private int rating;
@@ -65,5 +65,10 @@ public class Product {
                 ", price = " + getPrice() +
                 ", rating = " + getRating() +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return this.name.compareTo(o.getName());
     }
 }
