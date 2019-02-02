@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Класс User, содержащий логин, пароль и объект класса Basket.
  */
-public class User {
+public class User implements Comparable<User> {
     private String login;
     private String password;
     private Basket basket;
@@ -19,6 +19,9 @@ public class User {
     public User(String login, String password) {
         this.login = login;
         this.password = password;
+    }
+
+    public User() {
     }
 
     public String getLogin() {
@@ -67,5 +70,10 @@ public class User {
                 ", password = '" + getPassword() + '\'' +
                 ", basket = " + getBasket() +
                 '}';
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return this.login.compareTo(o.getLogin());
     }
 }

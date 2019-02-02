@@ -1,14 +1,14 @@
 package com.company.internetShop;
 
-import com.company.internetShop.common.CategoryList;
-import com.company.internetShop.common.Constants;
-import com.company.internetShop.common.OutputMenuElement;
-import com.company.internetShop.common.ScannerUtility;
+import com.company.internetShop.common.*;
 import com.company.internetShop.businessLogic.*;
 import com.company.internetShop.model.Basket;
 import com.company.internetShop.model.Category;
 import com.company.internetShop.model.Product;
 import com.company.internetShop.model.User;
+
+import java.util.NavigableMap;
+import java.util.TreeMap;
 
 /**
  * Программа магазин.
@@ -37,11 +37,12 @@ public class Main {
         categories[1] = new Category(CategoryList.MOBILE_DEVICE, productsMobileDevice);
         categories[2] = new Category(CategoryList.DEVICE_FOR_LAPTOP, productsDeviceForLaptop);
 
+        NavigableMap<String, User> dbUsers = new TreeMap<>();
 
-        // User authorization
-        User user1 = LoginUser.getUserCredentials();
+        CreateUsersDB.createUserDB(dbUsers);
 
-        // Main loop
+        User user = LoginUser.authorization(dbUsers);
+
         boolean exit = true;
         while (exit) {
             ScannerUtility.clscr();
@@ -52,12 +53,12 @@ public class Main {
                 case CATEGORY_LIST:
                     ScannerUtility.clscr();
                     OutputMenuElement.outputCategoriesList();
-                    ScannerUtility.ContinueWork();
+                    ScannerUtility.continueWork();
                     break;
                 case GOODS_LIST_OF_CATEGORY:
                     ScannerUtility.clscr();
                     GoodsListOfCategory.getCategoryNumber(categories);
-                    ScannerUtility.ContinueWork();
+                    ScannerUtility.continueWork();
                     break;
                 case ADD_TO_CART:
                     ScannerUtility.clscr();
@@ -66,12 +67,12 @@ public class Main {
                     ScannerUtility.clscr();
                     System.out.println(Constants.BASKET_CONTAINS);
                     System.out.println(basketUser.toString());
-                    ScannerUtility.ContinueWork();
+                    ScannerUtility.continueWork();
                     break;
                 case BUY_GOODS:
                     ScannerUtility.clscr();
-                    BuyGoods.buyGoods(user1, basketUser);
-                    ScannerUtility.ContinueWork();
+                    BuyGoods.buyGoods(user, basketUser);
+                    ScannerUtility.continueWork();
                     break;
                 case EXIT:
                     ScannerUtility.clscr();

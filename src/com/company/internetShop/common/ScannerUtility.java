@@ -48,12 +48,29 @@ public class ScannerUtility {
     }
 
     /**
+     * Imitation of clear screen
+     */
+    public static void clrScanner() {
+        scanner.nextLine();
+    }
+
+    /**
      * Метод приостанавливает работу программы чтоб пользователь прочитал выведенные данные.
      * Нажатие клавишы Enter азблокирует работу программы
      */
-    public static void ContinueWork() {
+    public static void continueWork() {
         System.out.println();
         System.out.print(Constants.CONTINUE_MESSAGE);
+        getIntegerValue();
+    }
+
+    /**
+     * Метод приостанавливает работу программы чтоб пользователь прочитал выведенные данные.
+     * Нажатие клавишы Enter азблокирует работу программы
+     */
+    public static void continueAuthorization() {
+        System.out.println();
+        System.out.print(Constants.CONTINUE_AUTHRIZATION);
         getIntegerValue();
     }
 }
