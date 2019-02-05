@@ -66,10 +66,9 @@ public class User implements Comparable<User> {
     @Override
     public String toString() {
         return "User{" +
-                "login = '" + getLogin() + '\'' +
-                ", password = '" + getPassword() + '\'' +
-                ", basket = " + getBasket() +
-                '}';
+                "login = " + getLogin() +
+                ", password = '" + getPassword() +
+                ", basket = " + getBasket() + "}";
     }
 
     @Override

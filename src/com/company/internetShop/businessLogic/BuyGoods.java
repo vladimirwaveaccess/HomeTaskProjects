@@ -20,6 +20,7 @@ public class BuyGoods {
             user.setBasket(basket);
             System.out.println("Information about your purchase:");
             System.out.println(user.toString());
+            PrintBasketToFile.printToFile(user);
             System.out.println("\nPurchase processing, please wait");
             try {
                 TimeUnit.SECONDS.sleep(5);
