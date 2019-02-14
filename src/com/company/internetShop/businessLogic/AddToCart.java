@@ -5,26 +5,24 @@ import com.company.internetShop.common.OutputMenuElement;
 import com.company.internetShop.common.ScannerUtility;
 import com.company.internetShop.model.Product;
 
-import java.time.LocalDateTime;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class AddToCart {
     /**
      * Метод выводит список всех имеющихся товаров на экран и добавляет товары в корзину выбранные пользователем
      * до тех пор пока пользователь не выйдет из режима добавления товаров
      *
-     * @param products - массив имеющихся продуктов
      * @return - возвращает коллекцию добавленных товаров
      */
-    public static Set<Product> getProductNumber(Product[] products) {
-        Set<Product> userBasket = new TreeSet<Product>();
+    public static SortedSet<Product> getProductNumber() {
+        SortedSet<Product> userBasket = new TreeSet<>();
+        Map<Integer, Product> productsMap;
         int select;
         do {
             ScannerUtility.clscr();
-            OutputMenuElement.outputAllGoods(products);
+            productsMap = OutputMenuElement.outputAllGoods();
             System.out.print("\n" + Constants.NUMBER_PRODUCT);
-            userBasket.add(products[ScannerUtility.getIntegerValue() - 1]);
+            userBasket.add(productsMap.get(ScannerUtility.getIntegerValue()));
             System.out.print("\n" + Constants.BACK_TO_MAIN_MENU);
             select = ScannerUtility.getIntegerValue();
         } while (select != -1);
@@ -36,7 +34,7 @@ public class AddToCart {
      *
      * @return - текущее время
      */
-    public static LocalDateTime getTime() {
-        return LocalDateTime.now();
+    public static java.sql.Date getTime() {
+        return new java.sql.Date(Calendar.getInstance().getTimeInMillis());
     }
 }

@@ -3,12 +3,7 @@ package com.company.internetShop;
 import com.company.internetShop.common.*;
 import com.company.internetShop.businessLogic.*;
 import com.company.internetShop.model.Basket;
-import com.company.internetShop.model.Category;
-import com.company.internetShop.model.Product;
 import com.company.internetShop.model.User;
-
-import java.util.NavigableMap;
-import java.util.TreeMap;
 
 /**
  * Программа магазин.
@@ -20,28 +15,9 @@ import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) {
 
-        Category[] categories = new Category[CategoryList.values().length];
-
-        Product[] products = new Product[]{
-                new Product("productChemistry1", 234, 5), new Product("productChemistry2", 111, 4),
-                new Product("productMobileDevice1", 10555, 4), new Product("productMobileDevice2", 12222, 5),
-                new Product("productsDeviceForLaptop1", 561, 3), new Product("productsDeviceForLaptop2", 1212, 4)
-        };
-        Product[] productsChemistry = new Product[]{products[0], products[1]};
-        Product[] productsMobileDevice = new Product[]{products[2], products[3]};
-        Product[] productsDeviceForLaptop = new Product[]{products[4], products[5]};
-
         Basket basketUser = new Basket();
 
-        categories[0] = new Category(CategoryList.CHEMISTRY, productsChemistry);
-        categories[1] = new Category(CategoryList.MOBILE_DEVICE, productsMobileDevice);
-        categories[2] = new Category(CategoryList.DEVICE_FOR_LAPTOP, productsDeviceForLaptop);
-
-        NavigableMap<String, User> dbUsers = new TreeMap<>();
-
-        CreateUsersDB.createUserDB(dbUsers);
-
-        User user = LoginUser.authorization(dbUsers);
+        User user = LoginUser.authorization();
 
         boolean exit = true;
         while (exit) {
@@ -57,12 +33,17 @@ public class Main {
                     break;
                 case GOODS_LIST_OF_CATEGORY:
                     ScannerUtility.clscr();
-                    GoodsListOfCategory.getCategoryNumber(categories);
+                    GoodsListOfCategory.getCategoryNumber();
+                    ScannerUtility.continueWork();
+                    break;
+                case ALL_GOODS_LIST:
+                    ScannerUtility.clscr();
+                    AllGoods.AllGoodsOutput();
                     ScannerUtility.continueWork();
                     break;
                 case ADD_TO_CART:
                     ScannerUtility.clscr();
-                    basketUser.setProducts(AddToCart.getProductNumber(products));
+                    basketUser.setProducts(AddToCart.getProductNumber());
                     basketUser.setPurchaseDate(AddToCart.getTime());
                     ScannerUtility.clscr();
                     System.out.println(Constants.BASKET_CONTAINS);

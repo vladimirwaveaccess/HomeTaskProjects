@@ -9,6 +9,7 @@ public class Constants {
     public final static String INCORRECT_PASSWORD = "Sorry, your password doesn't match with password from DB!";
     public final static String GOOD_BUY = "Thank you for your visit!!! See you next time!!!";
     public final static String NUMBER_MENU = "Input number of item menu >";
+    public final static String NUMBER_SORT_MENU = "Input number of item menu >";
     public final static String NUMBER_PRODUCT = "Input number of product >";
     public final static String NUMBER_CATEGORY = "Input number of category >";
     public final static String BASKET_CONTAINS = "Your basket contains:";

@@ -4,7 +4,7 @@ package com.company.internetShop.common;
  * Список элементов главного меню
  */
 public enum Menu {
-    CATEGORY_LIST(1), GOODS_LIST_OF_CATEGORY(2), ADD_TO_CART(3), BUY_GOODS(4), EXIT(5);
+    CATEGORY_LIST(1), GOODS_LIST_OF_CATEGORY(2), ALL_GOODS_LIST(3), ADD_TO_CART(4), BUY_GOODS(5), EXIT(6);
 
     private int menuElement;
 

@@ -2,7 +2,7 @@ package com.company.internetShop.businessLogic;
 
 import com.company.internetShop.common.*;
 import com.company.internetShop.model.User;
-import java.util.NavigableMap;
+import com.company.internetShop.model.UserDAO;
 
 public class LoginUser {
     /**
@@ -38,13 +38,15 @@ public class LoginUser {
         return password;
     }
 
-    public static User authorization(NavigableMap<String, User> dbUsers) {
-        User user;
+    public static User authorization() {
+        User userInput, userDB = null;
+        UserDAO userDAO = new UserDAO();
         String confimPassword;
         while (true) {
-            user = LoginUser.getUserCredentials();
-            if (dbUsers.containsKey(user.getLogin())) {
-                if (verifyPassword(dbUsers.get(user.getLogin()), user)) {
+            userInput = LoginUser.getUserCredentials();
+            userDB = userDAO.findEntityByLogin(userInput.getLogin());
+            if (userDB != null) {
+                if (verifyPassword(userDB.getPassword(), userInput.getPassword())) {
                     System.out.println(Constants.WELCOME_MESSAGE);
                     break;
                 } else {
@@ -57,7 +59,9 @@ public class LoginUser {
                 ScannerUtility.clscr();
                 System.out.print("Input password once again to add you to our DB >");
                 confimPassword = ScannerUtility.inputString();
-                if (confirmCredentionals(user.getLogin(), user.getPassword(), confimPassword)) {
+                if (confirmCredentionals(userInput.getLogin(), userInput.getPassword(), confimPassword)) {
+                    userDAO.insertUserToDB(userInput.getLogin(), userInput.getPassword());
+                    userDB = userDAO.findEntityByLogin(userInput.getLogin());
                     break;
                 } else {
                     System.out.println("Try again!");
@@ -67,11 +71,11 @@ public class LoginUser {
                 }
             }
         }
-        return user;
+        return userDB;
     }
 
-    private static boolean verifyPassword(User userDB, User user) {
-        return userDB.getPassword().equals(user.getPassword());
+    private static boolean verifyPassword(String passwordDB, String passwordInput) {
+        return passwordDB.equals(passwordInput);
     }
 
     private static boolean confirmCredentionals(String login, String password, String confirmPassword) {
